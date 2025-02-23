@@ -3,7 +3,7 @@
 #
 # : "${XAKE_BASE:=ximeralatex}"
 # : "${XAKE_VERSION:=v2.5.10}"
-: "${XAKE_VERSION:=v2.6par.1-full}"    # with texlive_full
+: "${XAKE_VERSION:=v2.6.2a}"    # with texlive_full
 #
 # For publishing you'll need a GPG Key
 # To generate a key-pair, fill in your name and email, and run 'xmlatex genKey'
@@ -46,6 +46,7 @@ YOUR_EMAIL=""
 # export DOCKER_REPO=" "
 # export XM_PUSH_FORCE=1
 # export XM_FROST_WITH_UNCOMMITTED_CHANGES=1
+export XM_COMPILE_SEQUENCE="pdf,handout.pdf,html"
 
 #
 # For use in Actions, and perhaps to adapt the functionality of the PDF/HTML/SERVE buttons
