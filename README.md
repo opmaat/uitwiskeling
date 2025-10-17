@@ -1,5 +1,2 @@
-# Wiskunde Op Maat
-
-Antifragiel open-source project voor cursusmateriaal secundair onderwijs. 
-
+# Enkele onderzoekende leeractiviteiten voor Vectorruimten
 
