@@ -3,8 +3,230 @@
 \addPrintStyle{..}
 \begin{document}
 \author{Alexander Holvoet}
-\xmtitle]{Lineaire combinaties, lineaire onafhankelijkheid en voortbrengend deel}{}
+\xmtitle{Lineaire combinaties, lineaire onafhankelijkheid en voortbrengend deel}{}
 
+\begin{problem}
+Je bent een jonge reiziger die voor het eerst van huis gaat. Je ouders willen je helpen op je reis, dus hebben ze je twee soorten betoverde tapijten gegeven. Noch jij noch je ouders hebben ooit een zwevend board en een magisch tapijt gebruikt. Je ouders vertellen je dat zowel het zwevende board als het magische tapijt bepaalde bewegingsbeperkingen hebben.
+
+We duiden de beperking van de beweging van het zwevende board aan met de vector $\begin{bmatrix} 1 \\ 3 \end{bmatrix}$.
+
+Hiermee bedoelen we dat als het zwevende board één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 1 mijl naar het oosten en 3 mijl naar het noorden van zijn startlocatie.
+
+We duiden de beperking van de beweging van het magische tapijt aan met de vector $\begin{bmatrix} 2 \\ 1 \end{bmatrix}$.
+
+Hiermee bedoelen we dat als het magische tapijt één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 2 mijl naar het oosten en 1 mijl naar het noorden van zijn startlocatie.
+
+Je Oom George stelt voor dat je eerste avontuur zou moeten zijn om de wijze man, Oude Man Gauss, te bezoeken. Oom George vertelt je dat Oude Man Gauss 7 mijl naar het oosten en 8 mijl naar het noorden van je huis woont.
+
+Stel je voor of je het zwevende board en het magische tapijt kunt gebruiken om bij Gauss' hut te komen. Schrijf je analyse op als groep op je whiteboard, en of je antwoord(en) logisch zijn. Formuleer en leg als groep je antwoord(en) uit op het groepswhiteboard. Gebruik de vectornotatie voor elke transportmodus als onderdeel van je uitleg en gebruik een diagram of grafiek om je punt(en) te illustreren.
+
+\begin{freeResponse}
+We zoeken coëfficiënten $a$ en $b$ zodat: $a\begin{bmatrix} 1 \\ 3 \end{bmatrix} + b\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 7 \\ 8 \end{bmatrix}$
+
+Dit geeft het stelsel:
+$a + 2b = 7$
+$3a + b = 8$
+
+Oplossing: $a = 1, b = 3$. Dus 1 uur zwevend board + 3 uur magisch tapijt.
+
+Verificatie: $1\begin{bmatrix} 1 \\ 3 \end{bmatrix} + 3\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 7 \\ 8 \end{bmatrix}$ ✓
+
+Mogelijke studentenfouten:
+• Verkeerde opstelling van het stelsel vergelijkingen
+• Vergeten te controleren of de oplossing klopt door substitutie
+• Verwarring over de richting van de vectoren (positief vs negatief)
+\end{freeResponse}
+\end{problem}
+
+\begin{problem}
+Ga in een groep en werk samen aan dit probleem. Je weet niet zeker of Gauss gewoon je verstand wil testen door hem te vinden of dat hij daadwerkelijk ergens wil verstoppen waar je hem niet kunt bezoeken.
+
+Beschrijf welke plaatsen je kunt bereiken met behulp van een combinatie van het zwevende board en het magische tapijt. Specificeer deze geometrisch en algebraïsch met behulp van een tweedimensionale lineaire combinatie. Kan Gauss zich ergens verstoppen waar je hem niet kunt bereiken?
+
+\begin{freeResponse}
+Algebraïsch: Alle bereikbare punten vormen $\text{span}\left\{\begin{bmatrix} 1 \\ 3 \end{bmatrix}, \begin{bmatrix} 2 \\ 1 \end{bmatrix}\right\} = \mathbb{R}^2$
+
+De determinant van $\begin{bmatrix} 1 & 2 \\ 3 & 1 \end{bmatrix} = 1-6 = -5 \neq 0$, dus de vectoren zijn lineair onafhankelijk.
+
+Geometrisch: Alle punten in het vlak zijn bereikbaar omdat de twee richtingsvectoren niet evenwijdig zijn.
+
+Gauss kan zich nergens verstoppen in dit 2D-vlak.
+
+Mogelijke studentenfouten:
+• Denken dat alleen positieve coëfficiënten toegestaan zijn
+• Vergeten te berekenen of vectoren lineair onafhankelijk zijn
+• Verwarring tussen span en individuele vectorrichtingen
+\end{freeResponse}
+\end{problem}
+
+\begin{problem}
+Stel dat je nu in een driedimensionale wereld bent voor het tapijtritprobleem, en je hebt drie transportmodi: $\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$, $\mathbf{v}_3 = \begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix}$.
+
+Je moet een reis maken waarbij de som van de tijden die je besteedt aan elke transportmodus precies 1 eenheid is. Met andere woorden: $t_1 + t_2 + t_3 = 1$, waarbij $t_i$ de tijd is die je besteedt aan transportmodus $i$ (positief voor vooruit, negatief voor achteruit).
+
+Formuleer en leg als groep je antwoord(en) uit op het groepswhiteboard. Gebruik de vectornotatie voor elke transportmodus als onderdeel van je uitleg en gebruik een diagram of grafiek om je punt(en) te illustreren.
+
+\begin{freeResponse}
+De voorwaarde $t_1 + t_2 + t_3 = 1$ definieert een vlak in de coëfficiëntruimte.
+
+Alle bereikbare punten: $t_1\mathbf{v}_1 + t_2\mathbf{v}_2 + t_3\mathbf{v}_3$ met $t_1 + t_2 + t_3 = 1$
+
+Dit vormt een 2-dimensionaal vlak in $\mathbb{R}^3$ (affiene combinatie van de drie vectoren).
+
+De determinant van $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} = -6 \neq 0$, dus vectoren spannen heel $\mathbb{R}^3$.
+
+Maar door de restrictie $t_1 + t_2 + t_3 = 1$ bereik je alleen punten op een specifiek vlak.
+
+Mogelijke studentenfouten:
+• Vergeten van de restrictie $\sum t_i = 1$
+• Verwarring tussen span en affiene combinaties
+• Denken dat je heel $\mathbb{R}^3$ kunt bereiken ondanks de restrictie
+\end{freeResponse}
+\end{problem}
+
+\begin{question}
+Is er meer dan één manier om een reis te maken die voldoet aan de hierboven beschreven vereisten? (Met andere woorden, zijn er verschillende combinaties van tijden die je kunt besteden aan de transportmodi zodat je thuis kunt komen?) Zo ja, hoe?
+
+\begin{freeResponse}
+Voor thuiskomen geldt: $t_1\mathbf{v}_1 + t_2\mathbf{v}_2 + t_3\mathbf{v}_3 = \mathbf{0}$ met $t_1 + t_2 + t_3 = 1$.
+
+Dit geeft het systeem:
+$\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} \begin{bmatrix} t_1 \\ t_2 \\ t_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$ en $t_1 + t_2 + t_3 = 1$
+
+Deze voorwaarden zijn tegenstrijdig - je kunt niet thuiskomen onder deze restrictie.
+
+Mogelijke studentenfouten:
+• Vergeten dat thuiskomen betekent dat de som van vectoren nul moet zijn
+• Niet inzien dat de twee voorwaarden tegenstrijdig zijn
+\end{freeResponse}
+\end{question}
+
+\begin{question}
+Is er ergens in deze 3D-wereld waar Gauss zich voor je zou kunnen verstoppen? Zo ja, waar? Zo nee, waarom niet?
+
+\begin{freeResponse}
+Ja, Gauss kan zich verstoppen op alle punten die NIET op het vlak liggen dat wordt bepaald door de affiene combinaties van $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ met coëfficiënten die sommeren tot 1.
+
+Het bereikbare gebied is een 2D-vlak in $\mathbb{R}^3$, dus bijna alle punten in de 3D-ruimte zijn onbereikbaar.
+
+Mogelijke studentenfouten:
+• Denken dat de hele $\mathbb{R}^3$ bereikbaar is
+• Vergeten van de restrictie op de som van coëfficiënten
+\end{freeResponse}
+\end{question}
+
+\begin{question}
+Wat is $\text{span}\left\{\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix}\right\}$?
+
+\begin{freeResponse}
+$\text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\} = \mathbb{R}^3$
+
+Bewijs: De determinant van $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} = 1(2-12) - 1(1-4) + 1(3-2) = -10 + 3 + 1 = -6 \neq 0$
+
+Dus de vectoren zijn lineair onafhankelijk en spannen heel $\mathbb{R}^3$.
+
+Mogelijke studentenfouten:
+• Fout berekenen van de determinant
+• Verwarren van span met affiene combinaties
+\end{freeResponse}
+\end{question}
+
+\begin{question}
+Welke derde transportmodus zou ervoor zorgen dat je niet overal geraakt? (de verzameling van lineair afhankelijke vectoren = vct{die vector})
+
+\begin{freeResponse}
+Een vector $\mathbf{v}_3$ die lineair afhankelijk is van $\mathbf{v}_1$ en $\mathbf{v}_2$ ligt in hun span.
+
+Bijvoorbeeld: $\mathbf{v}_3 = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} = 1 \cdot \mathbf{v}_1 + 1 \cdot \mathbf{v}_2$
+
+Dan is $\text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\} = \text{span}\{\mathbf{v}_1, \mathbf{v}_2\}$, wat een 2D-vlak is in plaats van heel $\mathbb{R}^3$.
+
+Mogelijke studentenfouten:
+• Niet begrijpen wat lineaire afhankelijkheid betekent
+• Een willekeurige vector kiezen zonder te controleren of deze afhankelijk is
+\end{freeResponse}
+\end{question}
+
+\begin{problem}
+Vul de volgende tabel in met de gevraagde sets van vectoren. Houd de strategieën bij die je gebruikt om de voorbeelden te genereren.
+
+\begin{center}
+\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+& \textbf{Lineair afhankelijke set} & \textbf{Lineair onafhankelijke set} \\
+\hline
+\textbf{Een set van 2 vectoren in $\mathbb{R}^2$} & & \\
+\hline
+\textbf{Een set van 3 vectoren in $\mathbb{R}^2$} & & \\
+\hline
+\textbf{Een set van 2 vectoren in $\mathbb{R}^3$} & & \\
+\hline
+\textbf{Een set van 3 vectoren in $\mathbb{R}^3$} & & \\
+\hline
+\textbf{Een set van 4 vectoren in $\mathbb{R}^3$} & & \\
+\hline
+\end{tabular}
+\end{center}
+
+Schrijf ten minste 2 generalisaties die kunnen worden gemaakt uit deze voorbeelden en de strategieën die je hebt gebruikt om ze te construeren.
+
+\begin{freeResponse}
+Voorbeeldtabel:
+• 2 vectoren in $\mathbb{R}^2$: Afhankelijk: $\{(1,2), (2,4)\}$, Onafhankelijk: $\{(1,0), (0,1)\}$
+• 3 vectoren in $\mathbb{R}^2$: Afhankelijk: $\{(1,0), (0,1), (1,1)\}$, Onafhankelijk: Niet mogelijk!
+• 2 vectoren in $\mathbb{R}^3$: Afhankelijk: $\{(1,1,1), (2,2,2)\}$, Onafhankelijk: $\{(1,0,0), (0,1,0)\}$
+• 3 vectoren in $\mathbb{R}^3$: Afhankelijk: $\{(1,0,0), (0,1,0), (1,1,0)\}$, Onafhankelijk: $\{(1,0,0), (0,1,0), (0,0,1)\}$
+• 4 vectoren in $\mathbb{R}^3$: Afhankelijk: Altijd!, Onafhankelijk: Niet mogelijk!
+
+Generalisaties:
+1. In $\mathbb{R}^n$ kunnen maximaal $n$ vectoren lineair onafhankelijk zijn
+2. Meer dan $n$ vectoren in $\mathbb{R}^n$ zijn altijd lineair afhankelijk
+
+Mogelijke studentenfouten:
+• Denken dat meer vectoren altijd beter is
+• Niet begrijpen van de dimensiebeperking
+• Fouten in het controleren van lineaire (on)afhankelijkheid
+\end{freeResponse}
+\end{problem}
+
+\section*{Didactische Aanbevelingen}
+
+\subsection*{Algemene Pedagogische Opmerkingen}
+
+\textbf{Opbouw van Concepten:}
+\begin{itemize}
+\item Begin met concrete, visuele voorstellingen (reizen, tapijten) voordat je overgaat naar abstracte vectorruimten
+\item Laat studenten eerst intuïtief redeneren over bereikbaarheid voordat formele bewijzen worden geïntroduceerd
+\item Gebruik de verhalende context om motivatie te behouden bij technische berekeningen
+\end{itemize}
+
+\textbf{Differentiatiestrategieën:}
+\begin{itemize}
+\item Voor sterke studenten: Voeg uitbreidingsvragen toe over n-dimensionale gevallen
+\item Voor zwakkere studenten: Verstrek extra scaffolding bij het opstellen van stelsels vergelijkingen
+\item Gebruik verschillende representaties: grafisch, algebraïsch, en numeriek
+\end{itemize}
+
+\textbf{Assessment Overwegingen:}
+\begin{itemize}
+\item Evalueer zowel procedurele vaardigheden (determinant berekenen) als conceptueel begrip (span interpreteren)
+\item Vraag studenten hun geometrische intuïtie te verwoorden naast formele bewijzen
+\item Let op veelgemaakte fouten zoals verwarring tussen lineaire en affiene combinaties
+\end{itemize}
+
+\textbf{Technologie Integratie:}
+\begin{itemize}
+\item Gebruik grafische software voor visualisatie van vectorruimten in 2D en 3D
+\item Computationele tools kunnen helpen bij verificatie van determinantberekeningen
+\item Interactieve applets voor het verkennen van lineaire combinaties
+\end{itemize}
+
+\textbf{Verbindingen met Andere Onderwerpen:}
+\begin{itemize}
+\item Koppel aan meetkunde: parallelogramregel, basis en dimensie
+\item Verbind met fysica: krachten, snelheidsvectoren
+\item Introduceer toepassingen in computergraphics en data-analyse
+\end{itemize}
 
 
 \end{document}
