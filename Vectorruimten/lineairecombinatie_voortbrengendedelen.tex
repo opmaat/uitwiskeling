@@ -35,7 +35,7 @@ Als je \(h\) uren de hoverboard gebruikt en \(m\) uren het magische tapijt, dan 
 \[h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 107 \\ 64 \end{bmatrix}\]
 \end{hint}
 \begin{oplossing}
-Maak zelf een tekening om het grafisch te illustreren!
+Maak zelf een tekening om het grafisch te illustreren!\newline
 Algebraïsch zoeken we coëfficiënten \(h\) en \(m\) zodat:
 \[h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 107 \\ 64 \end{bmatrix}\]
 Dit geeft het stelsel:
@@ -47,15 +47,15 @@ Dit geeft het stelsel:
     \end{array}
 \right.
 \]
-wat oplossing \(h=30\), \(m=17\) geeft.
-Gauss bezoeken is dus effectief mogelijk door 30 uur de hoverboard te gebruiken en 17 uur het magische tapijt.
+wat oplossing \(h=30\), \(m=17\) heeft.
+Gauss bezoeken is dus effectief mogelijk door 30 uur het hoverboard te gebruiken en 17 uur het magische tapijt.
 (Maakt het uit in welke volgorde, of hoe je die 30 en 17 uur verdeelt?)
 \end{oplossing}
 \end{exercise}
 
 \begin{exercise}
 Gauss zou graag zijn hutje verplaatsen.
-Je weet niet helemaal waarom, maar het betekent alleszins dat je niet zeker weet of je hem nog zal kunnen bezoeken\dot{}\newline
+Je weet niet helemaal waarom, maar het betekent alleszins dat je niet zeker weet of je hem nog zal kunnen bezoeken...\newline
 
 Zijn er plaatsen waar je Gauss niet kan bezoeken?
 Beschrijf de plaatsen die je wel kan bezoeken, zowel geometrisch als algebraïsch, met behulp van een lineaire combinatie.
@@ -67,20 +67,21 @@ Maak ten slotte een overtuigend argument of er onbereikbare plaatsen zijn waar G
 \begin{oplossing}
     Algebraïsch: alle bereikbare punten zijn van de vorm \(h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix}\).
     Essentieel om in te zien is dat \(h\) en \(m\) ieder getal in \(\mathbb{R}\) kunnen zijn (positief, negatief, breuk, enzovoort).
-    Het stelsel om punt \(\begin{bmatrix} x \\ y \end{bmatrix}\) te bereiken
+    Als je punt \(\begin{bmatrix} x \\ y \end{bmatrix}\) wil bereiken, dan moet het stelsel
     \[
     \left\{
-        \begin{array}{@{}l@{}}
+        \begin{array}{l}
         3h+m=x\\
         h+2m=y
         \end{array}
     \right.
     \]
-    zal altijd een unieke oplossing hebben.\newline
+    een oplossing hebben, en dat is altijd het geval.\newline
 
-    Meetkundig kan je een tekening als onderstaande \cref{fig:specificdisplaylinearcombo} maken, om te zien dat ieder punt in het vlak bereikt kan worden door een geschikte combinatie van de twee richtingen.
-    \begin{figure}[h!]
-    \begin{tikzpicture}
+    Meetkundig kan je een tekening als in Figuur~\ref{fig:specificdisplaylinearcombo} maken, om te zien dat ieder punt in het vlak bereikt kan worden door een geschikte combinatie van de twee richtingen.
+    \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale=0.7]
 
     \draw[->] (0,0) -- (10,0) node[below right] {oosten};
     \draw[->] (0,0) -- (0,10) node[above left] {noorden};
@@ -138,12 +139,12 @@ Zo nee, waarom niet?
 Wat is \(\text{span}\left\{\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 6 \\ 3 \\ 8 \end{bmatrix}, \begin{bmatrix} 4 \\ 1 \\ 6 \end{bmatrix}\right\}\)?
 En wat betekent dit in de context van de transportmodi?
 \end{question}
+\end{exercise}
 
 \subsection*{Afsluiter of huistaak}
 Vul de volgende tabel in met de gevraagde sets van vectoren.
 Schrijf de strategieën op die je gebruikt om de voorbeelden te genereren.
-
-\begin{center}
+\begin{table}[H]
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 & \textbf{Lineair afhankelijke set} & \textbf{Lineair onafhankelijke set} \\
@@ -159,7 +160,7 @@ Schrijf de strategieën op die je gebruikt om de voorbeelden te genereren.
 \textbf{Een set van 4 vectoren in $\mathbb{R}^3$} & & \\
 \hline
 \end{tabular}
-\end{center}
-
+\end{table}
 Schrijf ten minste 2 generalisaties die kunnen worden gemaakt uit deze voorbeelden en de strategieën die je hebt gebruikt om ze te construeren.
+
 \end{document}
