@@ -5,150 +5,143 @@
 \author{Alexander Holvoet}
 \xmtitle{Lineaire combinaties, lineaire onafhankelijkheid en voortbrengend deel}{}
 
-\begin{problem}
-Je bent een jonge reiziger die voor het eerst van huis gaat. Je ouders willen je helpen op je reis, dus hebben ze je twee soorten betoverde tapijten gegeven. Noch jij noch je ouders hebben ooit een hoverboard en een magisch tapijt gebruikt. Je ouders vertellen je dat zowel het hoverboard als het magische tapijt bepaalde bewegingsbeperkingen hebben.
+In deze instapsoefening verkennen we de concepten van `lineaire combinatie', `lineaire onafhankelijkheid' en `voortbrengend deel' door op een tapijt door de lucht te vliegen.
+Tijdens de activiteit werk je samen in groepjes, maar voegt de leerkracht handige tips en definities toe waar nodig.\newline
 
-We duiden de beperking van de beweging van het hoverboard aan met de vector $\begin{bmatrix} 1 \\ 3 \end{bmatrix}$.
+\subsection*{Inleiding}
+Je bent een jonge reiziger die voor het eerst van huis gaat.
+Je ouders willen je helpen op je reis, dus hebben ze je twee vervoersmiddelen gegeven: een hoverboard en een magisch tapijt.
+Je ouders vertellen je dat zowel het hoverboard als het magische tapijt bepaalde bewegingsbeperkingen hebben:
+\begin{itemize}
+    \item[Hoverboard] We duiden de beperking van de beweging van het hoverboard aan met de vector $\begin{bmatrix} 3\\ 1\end{bmatrix}$.
+    Hiermee bedoelen we dat als het hoverboard één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 3 kilometer naar het oosten en 1 kilometer naar het noorden van zijn startlocatie.
+    \item[Magisch tapijt] We duiden de beperking van de beweging van het magische tapijt aan met de vector $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$.
+    Hiermee bedoelen we dat als het magische tapijt één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 1 kilometer naar het oosten en 2 kilometer naar het noorden van zijn startlocatie.
+\end{itemize}
 
-Hiermee bedoelen we dat als het hoverboard één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 1 kilometer naar het oosten en 3 kilometer naar het noorden van zijn startlocatie.
+\subsection*{Open problemen}
+\begin{exercise}
+Je oom George stelt voor dat je eerste avontuur zou moeten zijn om de wijze man, Oude Man Gauss, te bezoeken.
+Oom George vertelt je dat Oude Man Gauss 107 kilometer naar het oosten en 64 kilometer naar het noorden van je huis woont.\newline
 
-We duiden de beperking van de beweging van het magische tapijt aan met de vector $\begin{bmatrix} 2 \\ 1 \end{bmatrix}$.
-
-Hiermee bedoelen we dat als het magische tapijt één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 2 kilometer naar het oosten en 1 kilometer naar het noorden van zijn startlocatie.
-
-Je Oom George stelt voor dat je eerste avontuur zou moeten zijn om de wijze man, Oude Man Gauss, te bezoeken. Oom George vertelt je dat Oude Man Gauss 7 kilometer naar het oosten en 8 kilometer naar het noorden van je huis woont.
-
-Stel je voor of je het hoverboard en het magische tapijt kunt gebruiken om bij Gauss' hut te komen. Schrijf je analyse op als groep op je whiteboard, en of je antwoord(en) logisch zijn. Formuleer en leg als groep je antwoord(en) uit op het groepswhiteboard. Gebruik de vectornotatie voor elke transportmodus als onderdeel van je uitleg en gebruik een diagram of grafiek om je punt(en) te illustreren.
-
-\begin{freeResponse}
-We zoeken coëfficiënten $a$ en $b$ zodat: $a\begin{bmatrix} 1 \\ 3 \end{bmatrix} + b\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 7 \\ 8 \end{bmatrix}$
-
+Onderzoek of het mogelijk is om Gauss te bezoeken met de twee vervoersmiddelen.
+Maak daarbij gebruik van een diagram, en gebruik gepaste vectornotatie om je redenering te ondersteunen.
+\begin{hint}
+Gauss' huis bevindt zich op de locatie die kan worden beschreven door de vector $\begin{bmatrix} 107 \\ 64 \end{bmatrix}$.
+\end{hint}
+\begin{hint}
+Je kan de vervoersmiddelen ook achteruit gebruiken.
+Als je \(h\) uren de hoverboard gebruikt en \(m\) uren het magische tapijt, dan is je verplaatsing gegeven door de lineaire combinatie:
+\[h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 107 \\ 64 \end{bmatrix}\]
+\end{hint}
+\begin{oplossing}
+Maak zelf een tekening om het grafisch te illustreren!
+Algebraïsch zoeken we coëfficiënten \(h\) en \(m\) zodat:
+\[h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix} = \begin{bmatrix} 107 \\ 64 \end{bmatrix}\]
 Dit geeft het stelsel:
-$a + 2b = 7$
-$3a + b = 8$
+\[
+\left\{
+    \begin{array}{@{}l@{}}
+    3h+m=107\\
+    h+2m=64
+    \end{array}
+\right.
+\]
+wat oplossing \(h=30\), \(m=17\) geeft.
+Gauss bezoeken is dus effectief mogelijk door 30 uur de hoverboard te gebruiken en 17 uur het magische tapijt.
+(Maakt het uit in welke volgorde, of hoe je die 30 en 17 uur verdeelt?)
+\end{oplossing}
+\end{exercise}
 
-Oplossing: $a = 1, b = 3$. Dus 1 uur hoverboard + 3 uur magisch tapijt.
+\begin{exercise}
+Gauss zou graag zijn hutje verplaatsen.
+Je weet niet helemaal waarom, maar het betekent alleszins dat je niet zeker weet of je hem nog zal kunnen bezoeken\dot{}\newline
 
-Verificatie: $1\begin{bmatrix} 1 \\ 3 \end{bmatrix} + 3\begin{bmatrix} 2 \\ 1 \end{bmatrix} = \begin{bmatrix} 7 \\ 8 \end{bmatrix}$
+Zijn er plaatsen waar je Gauss niet kan bezoeken?
+Beschrijf de plaatsen die je wel kan bezoeken, zowel geometrisch als algebraïsch, met behulp van een lineaire combinatie.
+Maak ten slotte een overtuigend argument of er onbereikbare plaatsen zijn waar Gauss zich kan verstoppen.
+\begin{hint}
+    Gebruik opnieuw de lineaire combinatie van daarnet: \(h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix}\)
+    Welke waardes voor \(h\) en \(m\) zijn mogelijk?
+\end{hint}
+\begin{oplossing}
+    Algebraïsch: alle bereikbare punten zijn van de vorm \(h \begin{bmatrix} 3 \\ 1 \end{bmatrix} + m \begin{bmatrix} 1 \\ 2 \end{bmatrix}\).
+    Essentieel om in te zien is dat \(h\) en \(m\) ieder getal in \(\mathbb{R}\) kunnen zijn (positief, negatief, breuk, enzovoort).
+    Het stelsel om punt \(\begin{bmatrix} x \\ y \end{bmatrix}\) te bereiken
+    \[
+    \left\{
+        \begin{array}{@{}l@{}}
+        3h+m=x\\
+        h+2m=y
+        \end{array}
+    \right.
+    \]
+    zal altijd een unieke oplossing hebben.\newline
 
-Mogelijke studentenfouten:
-• Verkeerde opstelling van het stelsel vergelijkingen
-• Vergeten te controleren of de oplossing klopt door substitutie
-• Verwarring over de richting van de vectoren (positief vs negatief)
-\end{freeResponse}
-\end{problem}
+    Meetkundig kan je een tekening als onderstaande \cref{fig:specificdisplaylinearcombo} maken, om te zien dat ieder punt in het vlak bereikt kan worden door een geschikte combinatie van de twee richtingen.
+    \begin{figure}[h!]
+    \begin{tikzpicture}
 
-\begin{problem}
-Ga in een groep en werk samen aan dit probleem. Je weet niet zeker of Gauss gewoon je verstand wil testen door hem te vinden of dat hij daadwerkelijk ergens wil verstoppen waar je hem niet kunt bezoeken.
+    \draw[->] (0,0) -- (10,0) node[below right] {oosten};
+    \draw[->] (0,0) -- (0,10) node[above left] {noorden};
 
-Beschrijf welke plaatsen je kunt bereiken met behulp van een combinatie van het hoverboard en het magische tapijt. Specificeer deze geometrisch en algebraïsch met behulp van een tweedimensionale lineaire combinatie. Kan Gauss zich ergens verstoppen waar je hem niet kunt bereiken?
+    % specifieke lineaire combinatie
+    \draw[->, thick, orange!70] (0,0) -- (6,2) node[midway, below, sloped, black] {$\color{orange}2\begin{bmatrix} 3 \\ 1 \end{bmatrix}$};
+    \draw[->, thick, purple!70] (0,0) -- (3,6) node[midway, above, sloped, black] {$\color{purple}3\begin{bmatrix} 1 \\ 2 \end{bmatrix}$};
 
-\begin{freeResponse}
-Algebraïsch: Alle bereikbare punten vormen $\text{span}\left\{\begin{bmatrix} 1 \\ 3 \end{bmatrix}, \begin{bmatrix} 2 \\ 1 \end{bmatrix}\right\} = \mathbb{R}^2$
+    % basisvectoren hoverboard en tapijt
+    \draw[->, thick, red!70] (0,0) -- (3,1) node[midway, below, sloped, black] {$\color{red}\begin{bmatrix} 3 \\ 1 \end{bmatrix}$};
+    \draw[->, thick, blue!70] (0,0) -- (1,2) node[midway, above, sloped, black] {$\color{blue}\begin{bmatrix} 1 \\ 2 \end{bmatrix}$};
+    
+    % Resultant vector
+    \draw[->, ultra thick,] (0,0) -- (9,8) node[midway, above, rotate=45, black] {$2 \begin{bmatrix} 3 \\ 1 \end{bmatrix} + 3 \begin{bmatrix} 1 \\ 2 \end{bmatrix}$};
+    
+    % Dashed projection lines
+    \draw[dashed, gray, thick] (9,8) -- (6,2);
+    \draw[dashed, gray, thick] (9,8) -- (3,6);
+    \end{tikzpicture}
+    \caption{Een voorbeeld van een lineaire combinatie van de hoverboard- en tapijtrichtingen.}
+    \label{fig:specificdisplaylinearcombo}
+    \end{figure}
+    Formeel betekent dit dat de voortgebrachte verzameling van \(\begin{bmatrix} 3 \\ 1 \end{bmatrix}\) en \(\begin{bmatrix} 1 \\ 2 \end{bmatrix}\) het hele vlak \(\mathbb{R}^2\) is, oftewel:
+    \[
+    \text{span}\left\{\begin{bmatrix} 3 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \end{bmatrix}\right\} = \mathbb{R}^2
+    \]
+\end{oplossing}
+\end{exercise}
 
-De determinant van $\begin{bmatrix} 1 & 2 \\ 3 & 1 \end{bmatrix} = 1-6 = -5 \neq 0$, dus de vectoren zijn lineair onafhankelijk.
+\subsection*{Uitbreiding naar 3 dimensies}
+Stel dat je nu in een driedimensionale wereld bent voor het gelijkaardige probleem, en je hebt drie transportmodi:
+\[\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}\quad \text{, }\mathbf{v}_2 = \begin{bmatrix} 6 \\ 3 \\ 8 \end{bmatrix}\quad \text{en }\mathbf{v}_3 = \begin{bmatrix} 4 \\ 1 \\ 6 \end{bmatrix}\]
 
-Geometrisch: Alle punten in het vlak zijn bereikbaar omdat de twee richtingsvectoren niet evenwijdig zijn.
+Je mag ieder transportmiddel slechts \textbf{één keer} gebruiken voor een bepaalde duur \(t_1\), \(t_2\) en \(t_3\) (positief voor vooruit, negatief voor achteruit).
+Laat ons bekijken wat dit nu verandert aan de plaatsen die je kan bereiken.
 
-Gauss kan zich nergens verstoppen in dit 2D-vlak.
-
-Mogelijke studentenfouten:
-• Denken dat alleen positieve coëfficiënten toegestaan zijn
-• Vergeten te berekenen of vectoren lineair onafhankelijk zijn
-• Verwarring tussen span en individuele vectorrichtingen
-\end{freeResponse}
-\end{problem}
-
-\begin{problem}
-Stel dat je nu in een driedimensionale wereld bent voor het tapijtritprobleem, en je hebt drie transportmodi: $\mathbf{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$, $\mathbf{v}_2 = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}$, $\mathbf{v}_3 = \begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix}$.
-
-Je moet een reis maken waarbij de som van de tijden die je besteedt aan elke transportmodus precies 1 eenheid is. Met andere woorden: $t_1 + t_2 + t_3 = 1$, waarbij $t_i$ de tijd is die je besteedt aan transportmodus $i$ (positief voor vooruit, negatief voor achteruit).
-
-Formuleer en leg als groep je antwoord(en) uit op het groepswhiteboard. Gebruik de vectornotatie voor elke transportmodus als onderdeel van je uitleg en gebruik een diagram of grafiek om je punt(en) te illustreren.
-
-\begin{freeResponse}
-De voorwaarde $t_1 + t_2 + t_3 = 1$ definieert een vlak in de coëfficiëntruimte.
-
-Alle bereikbare punten: $t_1\mathbf{v}_1 + t_2\mathbf{v}_2 + t_3\mathbf{v}_3$ met $t_1 + t_2 + t_3 = 1$
-
-Dit vormt een 2-dimensionaal vlak in $\mathbb{R}^3$ (affiene combinatie van de drie vectoren).
-
-De determinant van $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} = -6 \neq 0$, dus vectoren spannen heel $\mathbb{R}^3$.
-
-Maar door de restrictie $t_1 + t_2 + t_3 = 1$ bereik je alleen punten op een specifiek vlak.
-
-Mogelijke studentenfouten:
-• Vergeten van de restrictie $\sum t_i = 1$
-• Verwarring tussen span en affiene combinaties
-• Denken dat je heel $\mathbb{R}^3$ kunt bereiken ondanks de restrictie
-\end{freeResponse}
-\end{problem}
+\begin{exercise}
+Kan je een reis maken waarbij je thuis begint en ook eindigt?
+Zoja, vind \(t_1\), \(t_2\) en \(t_3\) zodat je terug thuis komt.
+Zonee, leg uit waarom niet.
 
 \begin{question}
-Is er meer dan één manier om een reis te maken die voldoet aan de hierboven beschreven vereisten? (Met andere woorden, zijn er verschillende combinaties van tijden die je kunt besteden aan de transportmodi zodat je thuis kunt komen?) Zo ja, hoe?
-
-\begin{freeResponse}
-Voor thuiskomen geldt: $t_1\mathbf{v}_1 + t_2\mathbf{v}_2 + t_3\mathbf{v}_3 = \mathbf{0}$ met $t_1 + t_2 + t_3 = 1$.
-
-Dit geeft het systeem:
-$\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} \begin{bmatrix} t_1 \\ t_2 \\ t_3 \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$ en $t_1 + t_2 + t_3 = 1$
-
-Deze voorwaarden zijn tegenstrijdig - je kunt niet thuiskomen onder deze restrictie.
-
-Mogelijke studentenfouten:
-• Vergeten dat thuiskomen betekent dat de som van vectoren nul moet zijn
-• Niet inzien dat de twee voorwaarden tegenstrijdig zijn
-\end{freeResponse}
+Is er meer dan één manier om een reis te maken die voldoet aan de hierboven beschreven vereisten?
+(Met andere woorden, zijn er verschillende combinaties van tijden die je kunt besteden aan de transportmodi zodat je terug thuis komt?)
+Zo ja, hoe?
 \end{question}
 
 \begin{question}
-Is er ergens in deze 3D-wereld waar Gauss zich voor je zou kunnen verstoppen? Zo ja, waar? Zo nee, waarom niet?
-
-\begin{freeResponse}
-Ja, Gauss kan zich verstoppen op alle punten die NIET op het vlak liggen dat wordt bepaald door de affiene combinaties van $\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3$ met coëfficiënten die sommeren tot 1.
-
-Het bereikbare gebied is een 2D-vlak in $\mathbb{R}^3$, dus bijna alle punten in de 3D-ruimte zijn onbereikbaar.
-
-Mogelijke studentenfouten:
-• Denken dat de hele $\mathbb{R}^3$ bereikbaar is
-• Vergeten van de restrictie op de som van coëfficiënten
-\end{freeResponse}
+Is er ergens in deze 3D-wereld waar Gauss zich voor je zou kunnen verstoppen?
+Zo ja, waar?
+Zo nee, waarom niet?
 \end{question}
 
 \begin{question}
-Wat is $\text{span}\left\{\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}, \begin{bmatrix} 1 \\ 4 \\ 1 \end{bmatrix}\right\}$?
-
-\begin{freeResponse}
-$\text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\} = \mathbb{R}^3$
-
-Bewijs: De determinant van $\begin{bmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \\ 1 & 3 & 1 \end{bmatrix} = 1(2-12) - 1(1-4) + 1(3-2) = -10 + 3 + 1 = -6 \neq 0$
-
-Dus de vectoren zijn lineair onafhankelijk en spannen heel $\mathbb{R}^3$.
-
-Mogelijke studentenfouten:
-• Fout berekenen van de determinant
-• Verwarren van span met affiene combinaties
-\end{freeResponse}
+Wat is \(\text{span}\left\{\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \begin{bmatrix} 6 \\ 3 \\ 8 \end{bmatrix}, \begin{bmatrix} 4 \\ 1 \\ 6 \end{bmatrix}\right\}\)?
+En wat betekent dit in de context van de transportmodi?
 \end{question}
 
-\begin{question}
-Welke derde transportmodus zou ervoor zorgen dat je niet overal geraakt? (de verzameling van lineair afhankelijke vectoren = vct{die vector})
-
-\begin{freeResponse}
-Een vector $\mathbf{v}_3$ die lineair afhankelijk is van $\mathbf{v}_1$ en $\mathbf{v}_2$ ligt in hun span.
-
-Bijvoorbeeld: $\mathbf{v}_3 = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} = 1 \cdot \mathbf{v}_1 + 1 \cdot \mathbf{v}_2$
-
-Dan is $\text{span}\{\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\} = \text{span}\{\mathbf{v}_1, \mathbf{v}_2\}$, wat een 2D-vlak is in plaats van heel $\mathbb{R}^3$.
-
-Mogelijke studentenfouten:
-• Niet begrijpen wat lineaire afhankelijkheid betekent
-• Een willekeurige vector kiezen zonder te controleren of deze afhankelijk is
-\end{freeResponse}
-\end{question}
-
-\begin{problem}
-Vul de volgende tabel in met de gevraagde sets van vectoren. Houd de strategieën bij die je gebruikt om de voorbeelden te genereren.
+\subsection*{Afsluiter of huistaak}
+Vul de volgende tabel in met de gevraagde sets van vectoren.
+Schrijf de strategieën op die je gebruikt om de voorbeelden te genereren.
 
 \begin{center}
 \begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
@@ -169,26 +162,4 @@ Vul de volgende tabel in met de gevraagde sets van vectoren. Houd de strategieë
 \end{center}
 
 Schrijf ten minste 2 generalisaties die kunnen worden gemaakt uit deze voorbeelden en de strategieën die je hebt gebruikt om ze te construeren.
-
-\begin{freeResponse}
-Voorbeeldtabel:
-• 2 vectoren in $\mathbb{R}^2$: Afhankelijk: $\{(1,2), (2,4)\}$, Onafhankelijk: $\{(1,0), (0,1)\}$
-• 3 vectoren in $\mathbb{R}^2$: Afhankelijk: $\{(1,0), (0,1), (1,1)\}$, Onafhankelijk: Niet mogelijk!
-• 2 vectoren in $\mathbb{R}^3$: Afhankelijk: $\{(1,1,1), (2,2,2)\}$, Onafhankelijk: $\{(1,0,0), (0,1,0)\}$
-• 3 vectoren in $\mathbb{R}^3$: Afhankelijk: $\{(1,0,0), (0,1,0), (1,1,0)\}$, Onafhankelijk: $\{(1,0,0), (0,1,0), (0,0,1)\}$
-• 4 vectoren in $\mathbb{R}^3$: Afhankelijk: Altijd!, Onafhankelijk: Niet mogelijk!
-
-Generalisaties:
-1. In $\mathbb{R}^n$ kunnen maximaal $n$ vectoren lineair onafhankelijk zijn
-2. Meer dan $n$ vectoren in $\mathbb{R}^n$ zijn altijd lineair afhankelijk
-
-Mogelijke studentenfouten:
-• Denken dat meer vectoren altijd beter is
-• Niet begrijpen van de dimensiebeperking
-• Fouten in het controleren van lineaire (on)afhankelijkheid
-\end{freeResponse}
-\end{problem}
-
-STEL OOK AL DE VRAAG OVER VEELTERMEN!
-
 \end{document}
