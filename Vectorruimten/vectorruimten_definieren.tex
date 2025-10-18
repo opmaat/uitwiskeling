@@ -5,125 +5,217 @@
 \author{Alexander Holvoet}
 \xmtitle{Vectorruimtes definiëren}{}
 
+\subsection*{Inleiding}
+Met onderstaande oefeningen leren we kennen wat een `vectorruimte' is, door zelfstandig met de eigenschappen geconfronteerd te worden.
+Laat ons beginnen met een plezierig voorbeeld.\newline
 
+Een magisch vierkant is een vierkant rooster van \(n \times n\) gevuld met getallen, zodanig dat de som van de getallen in elke rij, elke kolom en beide diagonalen gelijk is.
+Soms vereist men ook dat alle getallen verschillend, positief en geheel zijn, maar dat zullen we hier niet doen.
 
+\begin{exercise}
+    Vul in onderstaande tabel zodat het een magisch vierkant wordt.
+    \[
+    \begin{array}{|c|c|c|}
+    \hline
+     &  &  \\
+    \hline
+    3 & 5 &  \\
+    \hline
+    4 &  & 2 \\
+    \hline
+    \end{array}
+    \]
+    \begin{oplossing}
+        Eén mogelijke oplossing is:
+        \[
+        \begin{array}{|c|c|c|}
+        \hline
+        8 & 1 & 6 \\
+        \hline
+        3 & 5 & 7 \\
+        \hline
+        4 & 9 & 2 \\
+        \hline
+        \end{array}
+        \]
+    \end{oplossing}
+\end{exercise}
 
-% optional: https://en.wikipedia.org/wiki/Siamese_method cool method to include for investigation
+\begin{exercise}
+    Bestaat er een methode om andere magische vierkanten van \(3 \times 3\) te vinden?
+    Schrijf je methode zorgvuldig uit.
+    Indien gewenst, mag je gebruik maken van ICT, maar werk \textbf{maximaal} 10 minuten aan deze opdracht.
+    \begin{hint}
+        Je kan variabelen \(s_{ij}\) gebruiken voor het getal in rij \(i\) en kolom \(j\) van het magische vierkant, en \(C\) voor de magische constante (de som van elke rij, kolom en diagonaal).
+        \[
+        S=
+        \begin{array}{|c|c|c|}
+        \hline
+        s_{11} & s_{12} & s_{13} \\
+        \hline
+        s_{21} & s_{22} &  s_{23}\\
+        \hline
+        s_{31} & s_{32} & s_{33} \\
+        \hline
+        \end{array}
+        \]
+        Dat geeft je de volgende vergelijkingen:
+        \[
+        \begin{cases}
+        s_{11} + s_{12} + s_{13} &= C \\
+        s_{21} + s_{22} + s_{23} &= C \\
+        s_{31} + s_{32} + s_{33} &= C \\
+        s_{11} + s_{21} + s_{31} &= C \\
+        s_{12} + s_{22} + s_{32} &= C \\
+        s_{13} + s_{23} + s_{33} &= C \\
+        s_{11} + s_{22} + s_{33} &= C \\
+        s_{13} + s_{22} + s_{31} &= C
+        \end{cases}
+        \]
+    \end{hint}
+    \begin{hint}
+    Door de vergelijkingen voor de diagonaal, antidiagonaal en de tweede rij op te tellen, vinden we dat \(3s_{22}+s_{11}+s_{22}+s_{33}+s_{13}+s_{23}+s_{33}=3C\).
+    Door de vergelijking voor de eerste en derde kolom toe te passen, vinden we uiteindelijk dat \(s_{22}=\frac{C}{3}\).
+    \end{hint}
+    \begin{hint}
+        Door bijvoorbeeld de vergelijking voor de diagonaal te combineren met die voor de tweede kolom, krijgen we \(s_{11} + s_{33} = s_{12} + s_{32}\).
+        Met de vergelijking voor de eerste rij en de derde kolom krijgen we \(s_{12} + s_{11} = s_{23} + s_{33}\).
+        Deze twee vergelijkingen optellen geeft \(2s_{11} = s_{23} + s_{32}\).
+        Je kan gelijkaardige vergelijkingen opstellen voor de cellen in de hoeken: \(s_{31}\), \(s_{13}\) en \(s_{33}\).
+    \end{hint}
+    \begin{oplossing}
+        Je nam waarschijnlijk de algebraïsche benadering en stelde een stelsel vergelijkingen op.
+        Het grote aantal variabelen en vergelijkingen maakt de situatie hier erg moeilijk.
+        Je kan eventueel nog proberen enkele variabelen te elimineren zoals in de hints, maar het lijkt algauw hopeloos.\newline
 
+        We zien in de volgende oefeningen een betere methode om magische vierkanten van \(3 \times 3\) te vinden.        
+    \end{oplossing}
+\end{exercise}
 
+\begin{exercise}
+    Stel dat \(M\) en \(N\) twee magisch vierkanten van \(3\times 3\) zijn.
+    Wat kan je dan zeggen over \(M + N\) en \(k \cdot M\)?
+    Schrijf de aannames die je maakt duidelijk op, en beargumenteer je antwoord.
+    \begin{oplossing}
+        We nemen aan dat de optelling en scalaire vermenigvuldiging elementsgewijs gebeurt.
+        Dan is zowel \(M + N\) als \(k \cdot M\) ook een magisch vierkant van \(3 \times 3\).
 
-OPWARM OEFENING:
-Vul in onderstaande tabel zodat het een ``magisch vierkant'' wordt (de som van elke rij, kolom en diagonaal is gelijk).
-\(
-\begin{array}{|c|c|c|}
-\hline
- &  &  \\
-\hline
-3 & 5 &  \\
-\hline
-4 &  & 2 \\
-\hline
-\end{array}
-\)
+        Als de magische constante van \(M\) gelijk is aan \(C_M\) en die van \(N\) gelijk is aan \(C_N\), dan is de magische constante van \(M + N\) gelijk aan \(C_M + C_N\), en die van \(k \cdot M\) gelijk aan \(k \cdot C_M\).
 
-Historical addition AS SOLUTION: + QUESTION: translate into system of equations?
-\url{https://en.wikipedia.org/wiki/Magic_square#A_method_for_constructing_a_magic_square_of_order_3}
+        Merk op: deze redenering zou ook opgaan voor magische vierkanten van andere groottes, \(n \times n \) in het algemeen.
+    \end{oplossing}
+\end{exercise}
 
-In the 19th century, Édouard Lucas devised the general formula for order 3 magic squares. Consider the following table made up of positive integers a, b and c:
-\(
-\begin{array}{|c|c|c|}
-\hline
-c - b & c + (a + b) & c - a \\
-\hline
-c - (a - b) & c & c + (a - b) \\
-\hline
-c + a & c - (a + b) & c + b \\
-\hline
-\end{array}
-\)
+\begin{exercise}
+    Zijn de onderstaande vierkanten ook magisch?
+    \[
+    A=
+    \begin{array}{|c|c|c|}
+    \hline
+    1 & 1 & 1 \\
+    \hline
+    1 & 1 & 1 \\
+    \hline
+    1 & 1 & 1 \\
+    \hline
+    \end{array}
+    , \quad
+    B=
+    \begin{array}{|c|c|c|}
+    \hline
+    0 & 1 & -1 \\
+    \hline
+    -1 & 0 & 1 \\
+    \hline
+    1 & -1 & 0 \\
+    \hline
+    \end{array}
+    , \quad \text{and} \quad
+    C=
+    \begin{array}{|c|c|c|}
+    \hline
+    -1 & 1 & 0 \\
+    \hline
+    1 & 0 & -1 \\
+    \hline
+    0 & -1 & 1 \\
+    \hline
+    \end{array}
+    \]
+    Zoja, wat is dan de magische constante?
+    \begin{oplossing}
+        Ja, alle drie de vierkanten zijn magisch.
+        De constante voor \(A\) is \(3\), voor \(B\) is het \(0\) en voor \(C\) is het ook \(0\).
+    \end{oplossing}
+\end{exercise}
 
-These nine numbers will be distinct positive integers forming a magic square with the magic constant 3c so long as 0 < a < b < c - a and b $\neq$ 2a. Moreover, every 3$\times$3 magic square of distinct positive integers is of this form. 
-We zullen het doen met order 3
-Let A, B, C be the magic squares as in Example 1.1. Prove that all 3 $\times$ 3
-magic squares can be written as $\lambda$A + $\mu$B + $\nu$C for some real numbers $\lambda$, $\mu$, $\nu$
-\(
-\begin{array}{|c|c|c|}
-\hline
-2 & 7 & 6 \\
-\hline
-9 & 5 & 1 \\
-\hline
-4 & 3 & 8 \\
-\hline
-\end{array}
-\)
+\begin{exercise}
+    Gebruikmakend van \(A\), \(B\) en \(C\) uit de vorige oefening, hoe kan je andere magische vierkanten vinden?
+    \begin{oplossing}
+        Je kan lineaire combinaties van \(A\), \(B\) en \(C\) nemen om andere magische vierkanten te vinden.
+        Bijvoorbeeld, het magische vierkant uit de eerste oefening kan geschreven worden als \(5A - B - 3C\).
+        In het algemeen, als je \(x\), \(y\) en \(z\) kiest, dan is \(xA + yB + zC\) een magisch vierkant met magische constante \(3x\).
+    \end{oplossing}
+\end{exercise}
 
-Check this, and verify that 5A - B - 3C equals the well-known magic square above.
+\begin{exercise}
+    \begin{question}
+        Vormt de verzameling van alle magische vierkanten een vectorruimte?
+    \end{question}
+    \begin{question}
+        Wat met de verzameling van alle magische vierkanten met magische constante \(3\) of constante \(0\)?
+    \end{question}
+    \begin{oplossing}
+        Ja, de verzameling van alle magische vierkanten vormt een vectorruimte.
 
-BASIS FOR ONLY THE SUBSPACE OF BORING SUBSPACE WHERE IT ALWAYS SUMS TO
-0
-\(
-\begin{array}{|c|c|c|}
-\hline
-0 & 1 & -1 \\
-\hline
--1 & 0 & 1 \\
-\hline
-1 & -1 & 0 \\
-\hline
-\end{array}
-\)
-\(
-\begin{array}{|c|c|c|}
-\hline
--1 & 1 & 0 \\
-\hline
-1 & 0 & -1 \\
-\hline
-0 & -1 & 1 \\
-\hline
-\end{array}
-\)
-\(
-\begin{array}{|c|c|c|}
-\hline
-1 & -1 & 0 \\
-\hline
-0 & 1 & -1 \\
-\hline
--1 & 0 & 1 \\
-\hline
-\end{array}
-\)
+        De magische vierkanten met magische constante \(3\) vormen geen vectorruimte.
+        Als twee vierkanten \(M\) en \(N\) elk een magische constante van \(3\) hebben, dan heeft hun som \(M + N\) een magische constante van \(6\), wat buiten de verzameling valt.
 
-DAN ZELF: wat is het verband met veeltermen bijvoorbeeld?
+        De magische vierkanten met magische constante \(0\) vormen wel een vectorruimte.
+    \end{oplossing}
+\end{exercise}
 
-LAAT LEERLINGEN MET HEEL EXOTISCHE OPTELLING EN VERMENIGVULDIGING WERKEN
-ELS beste voorbeeldjes:
-Set: V = $\mathbb{R}^{+}$ (positive real numbers)
-Addition: x $\oplus$ y = xy (ordinary multiplication!)
-Scalar multiplication: c $\odot$ x = $x^c$
+\begin{exercise}
+    Wat is het verband tussen
+    \begin{itemize}
+        \item de vectorruimte van magische vierkanten met magische constante \(0\): \(\mathbb{M}_{n\times n}^0\),
+        \item de vectorruimte van alle magische vierkanten van \(3 \times 3\): \(\mathbb{M}^{3 \times 3}\) en
+        \item de vectorruimte van alle \(3 \times 3\) matrices: \(\mathbb{R}^{3 \times 3}\) en
+        \item de vectorruimte van alle \(n \times n\) matrices: \(\mathbb{R}^{n \times n}\)?
+    \end{itemize}
+    (allen voorzien van de gebruikelijke optelling en scalaire vermenigvuldiging)
+    \begin{oplossing}
+        We hebben de volgende inclusies:
+        \begin{align*}
+            \mathbb{M}_{n\times n}^0 &\subseteq \mathbb{R}^{n \times n}\\
+            \mathbb{M}^{3 \times 3} &\subseteq \mathbb{R}^{3 \times 3}
+        \end{align*}
+        Andere verbanden zoals \(\mathbb{M}_{n\times n}^0 \subseteq \mathbb{M}^{3 \times 3}\) zijn er op zich niet onmiddellijk, aangezien de groottes van de magische vierkanten kunnen verschillen.
+        Het vierkant \(
+        \begin{array}{|c|c|}
+        \hline
+        0 & 0 \\
+        \hline
+        0 & 0 \\
+        \hline
+        \end{array}
+        \)
+        behoort bijvoorbeeld tot \(\mathbb{M}_{2\times 2}^0\), maar niet tot \(\mathbb{M}^{3 \times 3}\).
+        Op dezelfde manier is bijvoorbeeld \(\mathbb{R}^2\) geen deelruimte van \(\mathbb{R}^{3}\), al kan je wel op intuitieve wijze zeggen dat \(\mathbb{R}^2\) inpasbaar is in \(\mathbb{R}^{3}\).
+    \end{oplossing}
+\end{exercise}
 
-OF matrices waarbij getallen optellen tot 1 getal
+\begin{exercise}
+    Wat kan je op basis van de vorige oefeningen zeggen over de dimensie van \(\mathbb{M}^{3 \times 3}\)?
+    \begin{oplossing}
+        De matrices \(A\), \(B\) en \(C\) uit de vorige oefeningen zijn lineair onafhankelijk.
+        De dimensie van \(\mathbb{M}^{3 \times 3}\) is dus minstens \(3\).
+        Omgekeerd kan je elk magisch vierkant van \(3 \times 3\) schrijven als een lineaire combinatie van \(A\), \(B\) en \(C\), al is dat niet zo evident (zie \hyperlink{https://math.stackexchange.com/questions/2137182/showing-a-set-of-matrices-is-a-basis-of-all-3x3-magic-squares}{deze link}).
 
-DEELRUIMTEN TRANSFORMATIES is ook goed idee om hier te vragen
-Kzou nu eerst efkes het overkoepelende verhaal terug bekijken
+        De dimensie van \(\mathbb{M}^{3 \times 3}\) is precies \(3\).
+    \end{oplossing}
+\end{exercise}
 
-
-CONTROLEER DE EIGENSCHAPPEN VOOR CONCRETE VERZAMELING?
-
-belangrijkste eigenschappen:
-$$
-r\cdot (\mathbf{u}+\mathbf{v})=r\cdot \mathbf{u}+r\cdot \mathbf{v}
-\forall r,s\in \mathbb{R}:\forall \mathbf{u} \in V:(r+s)\cdot \mathbf{u}=r\cdot \mathbf{u}+s \cdot \mathbf{u}
-\forall r,s\in \mathbb{R}:\forall \mathbf{u} \in V:r\cdot (s\cdot \mathbf{u})=(r\cdot s) \cdot \mathbf{u}
-$$
-IE coordinatie van vectoroptelling en scalaire vermenigvuldiging
-kan je doen op zich
-een vectorruimte is gewoon een verzameling waarbinnen je altijd blijft, geen uitbreiding nodig!
-
-Je zou eventueel ook het definieren van die vectorruimten eerder kunnen plaatsen door eigenschappen van voortgebrachte delen te onderzoeken, maar dat is in zekere zin onnatuurlijker dan opmerken dat bij een lineaire transformatie \(f \mathbb{V} \to \mathbb{W}\) de deelruimten van \(V\) afgebeeld worden op deelruimten van \(W\).
-Je kan daarvoor verderwerken uit de oplossingsverzameling van een homogeen lineair stelsel (wat altijd een vectorruimte is).
-De onderzoekende leeractiviteit wordt dan gestuurd door ``Als deze twee vectoren een oplossing zijn van het homogeen stelsel, wat zijn dan alle andere oplossingen?''.
+% optional: \(\mathbb{R}(\sqrt{2})\)! real space over numbers adjoined with root 2
 
 \end{document}
