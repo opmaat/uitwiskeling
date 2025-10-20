@@ -1,5 +1,6 @@
 \documentclass{ximera}
 \input{../preamble}
+\newcommand{\pijl}[1]{\vec{#1}}
 \addPrintStyle{..}
 \begin{document}
 \author{Alexander Holvoet}
@@ -157,6 +158,20 @@ Soms vereist men ook dat alle getallen verschillend, positief en geheel zijn, ma
         In het algemeen, als je \(x\), \(y\) en \(z\) kiest, dan is \(xA + yB + zC\) een magisch vierkant met magische constante \(3x\).
     \end{oplossing}
 \end{exercise}
+
+\begin{definition}
+    Een vectorruimte is een verzameling \(V\) met twee bewerkingen, optelling en scalaire vermenigvuldiging, die voldoen aan de volgende eigenschappen:
+    \begin{enumerate}[label=(\arabic*)]
+    \item $\forall \pijl{u},\pijl{v},\pijl{w} \in V:(\pijl{u}+\pijl{v})+\pijl{w}=\pijl{u}+(\pijl{v}+\pijl{w})$
+    \item $\exists \pijl{0}_V \in V:\forall \pijl{u}\in V:\pijl{u}+\pijl{0}_V=\pijl{u}=\pijl{0}_V+\pijl{u}$
+    \item $\forall \pijl{u}\in V:\exists \pijl{u'}\in V:\pijl{u}+\pijl{u'}=\pijl{0}_V=\pijl{u'}+\pijl{u}$
+    \item $\forall \pijl{u},\pijl{v} \in V:\pijl{u}+\pijl{v}=\pijl{v}+\pijl{u}$
+    \item $\forall r\in \mathbb{R}:\forall \pijl{u},\pijl{v} \in V:r\cdot (\pijl{u}+\pijl{v})=r\cdot \pijl{u}+r\cdot \pijl{v}$
+    \item $\forall r,s\in \mathbb{R}:\forall \pijl{u} \in V:(r+s)\cdot \pijl{u}=r\cdot \pijl{u}+s \cdot \pijl{u}$
+    \item $\forall r,s\in \mathbb{R}:\forall \pijl{u} \in V:r\cdot (s\cdot \pijl{u})=(r\cdot s) \cdot \pijl{u}$
+    \item $\forall \pijl{u}\in V:1\cdot \pijl{u}=\pijl{u}$
+\end{enumerate}
+\end{definition}
 
 \begin{exercise}
     \begin{question}
