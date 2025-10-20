@@ -5,12 +5,20 @@
 \author{Alexander Holvoet}
 \xmtitle{Basis(sen) definiëren}{}
 
-% Oefeningen: Coördinatentransformaties in ℝ²
-% Gebaseerd op coordinate systems visualisatie
 
 \subsection*{Inleiding}
-Beschouw de volgende twee coördinatenstelsels in $\mathbb{R}^2$: het zwarte coördinatenstelsel en het blauwe coördinatenstelsel.
-In de figuur zijn zes punten aangeduid: $a$, $b$, $c$, $d$, $e$ en $f$.
+Je bent een scout die op verkenning is met onderstaande kaart.
+Tijdens de reis beschik je over twee verschillende vervoersmiddelen:
+\begin{itemize}
+    \item Hoverboard: We duiden de beperking van de beweging van het hoverboard aan met de vector $\begin{pmatrix} 1\\ 1\end{pmatrix}$.
+    Hiermee bedoelen we dat als het hoverboard één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 1 kilometer naar het oosten en 1 kilometer naar het noorden van zijn startlocatie.
+    \item Magisch tapijt: We duiden de beperking van de beweging van het magische tapijt aan met de vector $\begin{pmatrix} -1 \\ 3 \end{pmatrix}$.
+    Hiermee bedoelen we dat als het magische tapijt één uur ``vooruit'' zou bewegen, het langs een ``diagonaal'' pad zou bewegen dat zou resulteren in een verplaatsing van 1 kilometer naar het westen en 3 kilometer naar het noorden van zijn startlocatie.
+\end{itemize}
+
+Hieronder vind je de kaart met zes locaties die je moet bezoeken: $a$, $b$, $c$, $d$, $e$ en $f$.
+In het zwarte coördinatenstelsel worden de standaardeenheden gebruikt (1 km naar het oosten is \(+1\) in de \(x\)-richting, 1 km naar het noorden is \(+1\) in de \(y\)-richting).
+In het blauw worden de twee vervoersmiddelen weergegeven, met hun bijhorende richtingen als assen van een nieuw coördinatenstel.
 
 \begin{figure}[H]
 \centering
@@ -81,4 +89,32 @@ Om van zwart naar blauw om te zetten, vermenigvuldig je de coördinaten met de i
 \end{oplossing}
 \end{exercise}
 
+\begin{exercise}
+    Wat is de meeteenheid van het blauwe coördinatenstelsel? Met andere woorden, als je een coordinaat \(\color{blue}\begin{pmatrix} z \\ w \end{pmatrix}\) hebt, wat is dan de meeteenheid?
+    \begin{oplossing}
+        Het zwarte coördinatenstelsel gebruikt kilometers als meeteenheid.
+        Het blauwe coördinatenstelsel gebruikt een andere meeteenheid, namelijk hoe lang je ieder vervoersmiddel gebruikt.
+        De meeteenheid is dus in uren, en \(\color{blue}\begin{pmatrix} z \\ w \end{pmatrix}\) betekent dat je het hoverboard \(z\) uur vooruit gebruikt en het magische tapijt \(w\) uur vooruit.
+        De waardes \(z\) en \(w\) kunnen ook negatief zijn, wat betekent dat je het vervoersmiddel achteruit gebruikt.
+    \end{oplossing}
+\end{exercise}
+
+\begin{exercise}
+    Gebruikmakend van de blauwe coördinaten, hoeveel tijd neemt het in totaal in beslag om de volgende route af te leggen: \(a \rightarrow b \rightarrow c\)?
+    \begin{oplossing}
+        De blauwe coördinaten van de punten zijn:
+        \begin{itemize}
+            \item \(a: \color{blue}\begin{pmatrix} 3 \\ 1 \end{pmatrix}\)
+            \item \(b: \color{blue}\    begin{pmatrix} -6 \\ 2 \end{pmatrix}\)
+            \item \(c: \color{blue}\begin{pmatrix} 0 \\ -2 \end{pmatrix}\)
+        \end{itemize}
+        De verplaatsing van \(a\) naar \(b\) is dus:
+        \[\color{blue}\begin{pmatrix} -6 \\ 2 \end{pmatrix} - \begin{pmatrix} 3 \\ 1 \end{pmatrix} = \begin{pmatrix} -9 \\ 1 \end{pmatrix}\]
+        Dit betekent dat je 9 uur achteruit op het hoverboard moet en 1 uur vooruit op het magische tapijt.
+        De verplaatsing van \(b\) naar \(c\) is:
+        \[\color{blue}\begin{pmatrix} 0 \\ -2 \end{pmatrix} - \begin{pmatrix} -6 \\ 2 \end{pmatrix} = \begin{pmatrix} 6 \\ -4 \end{pmatrix}\]
+        Dit betekent dat je 6 uur vooruit op het hoverboard moet en 4 uur achteruit op het magische tapijt.
+        Alles samengenomen duurt de route 20 uur.
+    \end{oplossing}
+\end{exercise}
 \end{document}
