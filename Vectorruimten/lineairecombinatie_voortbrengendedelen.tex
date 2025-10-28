@@ -77,8 +77,8 @@ Maak ten slotte een overtuigend argument of er onbereikbare plaatsen zijn waar G
     een oplossing hebben, en dat is altijd het geval.\newline
 
     Meetkundig kan je een tekening als in Figuur~\ref{fig:specificdisplaylinearcombo} maken, om te zien dat ieder punt in het vlak bereikt kan worden door een geschikte combinatie van de twee richtingen.
-    \begin{figure}[H]
-    \centering
+\begin{image}
+    % \centering
     \begin{tikzpicture}[scale=0.7]
 
     \draw[->] (0,0) -- (10,0) node[below right] {oosten};
@@ -99,10 +99,11 @@ Maak ten slotte een overtuigend argument of er onbereikbare plaatsen zijn waar G
     \draw[dashed, gray, thick] (9,8) -- (6,2);
     \draw[dashed, gray, thick] (9,8) -- (3,6);
     \end{tikzpicture}
-    \caption{Een voorbeeld van een lineaire combinatie van de hoverboard- en tapijtrichtingen.}
     \label{fig:specificdisplaylinearcombo}
-    \end{figure}
-    Formeel betekent dit dat de voortgebrachte verzameling van \(\begin{pmatrix} 3 \\ 1 \end{pmatrix}\) en \(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\) het hele vlak \(\mathbb{R}^2\) is, oftewel:
+\end{image}
+\captionof{figure}{Een voorbeeld van een lineaire combinatie van de hoverboard- en tapijtrichtingen.}
+    
+Formeel betekent dit dat de voortgebrachte verzameling van \(\begin{pmatrix} 3 \\ 1 \end{pmatrix}\) en \(\begin{pmatrix} 1 \\ 2 \end{pmatrix}\) het hele vlak \(\mathbb{R}^2\) is, oftewel:
     \[
     \text{span}\left\{\begin{pmatrix} 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 2 \end{pmatrix}\right\} = \mathbb{R}^2
     \]
