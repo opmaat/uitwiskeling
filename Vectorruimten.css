@@ -10,12 +10,13 @@
 /* #5690b7 NOG EEN BLAUW (VERSCHENEN IN VECTOR) */
 /* #C9053F LOGO ROOD  */
 /* #F0C1BF LOGO TRANSPARANT UNDERLINE */
+/* #ebe9eb grijs tint van de website  */
 
 
 
 
 :root {
-	--main-title: #C9053F;
+	--main-title: #ebe9eb;
 	--menu-part: #C9053F;
 	--accent: #F0C1BF;
 	--definition: #81BA27;
@@ -24,13 +25,14 @@
 	--menu-2:  #d15399;
 }
 
-img.brandlogo {
+/* img.brandlogo {
 		display: none;		
-}
+} */
 
 img.xourselogo {
 	max-height: 6rem;
 	max-width: 20vw;
+	border-radius: 5px;
 }
 
 
