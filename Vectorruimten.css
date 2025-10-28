@@ -25,14 +25,15 @@
 	--menu-2:  #d15399;
 }
 
-/* img.brandlogo {
-		display: none;		
-} */
+img.brandlogo {
+	border-radius: 10px;	
+	max-height: 6rem;
+}
 
 img.xourselogo {
 	max-height: 6rem;
 	max-width: 20vw;
-	border-radius: 5px;
+	border-radius: 10px;
 }
 
 
@@ -53,3 +54,20 @@ img.xourselogo {
     font-size: larger;
     background-color: var(--menu-part);
 }
+
+
+	.exercise, .exercise-content, .exercise.ui-accordion-header {
+		--pba: var(--exercise-background-perc);
+		--pbo: var(--exercise-border-perc);
+		--r: var(--example-red);
+		--g: var(--example-green);
+		--b: var(--example-blue);
+		
+		--background-color: rgba(28, 143, 162, 0.2);  /* 50% opacity */
+		
+		--border-color: var(--exercises);	
+		
+		background-color: var(--background-color);
+		border: 1px solid var(--border-color);
+		border-left: 12px solid var(--border-color);
+	}
