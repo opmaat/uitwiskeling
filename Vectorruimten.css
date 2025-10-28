@@ -11,6 +11,7 @@
 
 
 
+
 :root {
 	--main-title: #1c8fa2;
 	--menu-part: #81BA27;
@@ -28,4 +29,23 @@ img.brandlogo {
 img.xourselogo {
 	max-height: 6rem;
 	max-width: 20vw;
+}
+
+
+.main-title {
+	background-color: var(--main-title);
+	color: white;
+	/* align-items: anchor-center; */
+}
+
+
+.toc .activity-card.active {
+    background-color: var(--accent) !important;
+    /* color: white;
+    border-color: #292b2c; */
+}
+
+.toc .part {
+    font-size: larger;
+    background-color: var(--menu-part);
 }
