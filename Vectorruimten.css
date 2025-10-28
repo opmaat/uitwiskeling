@@ -2,7 +2,7 @@
 
 
 /* #009bd DONKERBLAUW (ACTUALITEIT) */
-/* #f0811 ORANJE (BIBWIJZER) */
+/* ##f0811a ORANJE (BIBWIJZER) */
 /* #dd3333 ROOD (MODERNISERING SO) */
 /* #d15399 ROOS (ONDER DE LOEP)  */
 /* #1c8fa2 APPELBLAUWZEEGROEN (REDACTIONEEL) */
@@ -10,6 +10,16 @@
 /* #5690b7 NOG EEN BLAUW (VERSCHENEN IN VECTOR) */
 
 
+
+:root {
+	--main-title: #1c8fa2;
+	--menu-part: #81BA27;
+	--accent: #f0811a;
+	--definition: #81BA27;
+	--exercises: #1c8fa2;
+	--menu-1: #d15399;
+	--menu-2:  #d15399;
+}
 
 img.brandlogo {
 		display: none;		
