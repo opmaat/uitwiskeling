@@ -1,6 +1,6 @@
 \documentclass{ximera}
-\input{../preamble}
-\addPrintStyle{..}
+
+
 \begin{document}
 \author{Alexander Holvoet}
 \xmtitle{Matrixtransformaties}{}
@@ -8,7 +8,7 @@
 \subsection*{Inleiding}
 Veronderstel dat de letter ``N'' aan de linkerkant geschreven is in een regulier lettertype van 12-punt groot, en de ``N'' aan de rechterkant in een cursief lettertype van 16-punt groot.
 
-\begin{figure}[H]
+\begin{image}
 \begin{tikzpicture}[scale=1.5]
 \begin{scope}
 \draw[step=1, dotted] (0,0) grid (2,4);
@@ -22,7 +22,7 @@ Veronderstel dat de letter ``N'' aan de linkerkant geschreven is in een regulier
 \node at (1,-0.3) {\textit{Cursief}};
 \end{scope}
 \end{tikzpicture}
-\end{figure}
+\end{image}
 
 \subsection*{Open problemen}
 
@@ -78,7 +78,7 @@ Probeer de voorgestelde aanpak. Je moet ofwel:
     Stel dat we een andere letter zoals een ``A'' willen omzetten naar het cursief lettertype van 16-punt groot, startend vanaf het reguliere lettertype van 12-punt groot.
     Mogen we dan dezelfde matrix $A$ gebruiken als in de vorige oefeningen?
     Of moeten we een andere matrix vinden voor elke letter?
-    \begin{figure}[H]
+    \begin{image}
     \begin{tikzpicture}[scale=1.5]
     \begin{scope}
     \draw[step=1, dotted] (0,0) grid (2,4);
@@ -94,7 +94,8 @@ Probeer de voorgestelde aanpak. Je moet ofwel:
     \node at (1,-0.3) {\textit{Cursief}};
     \end{scope}
     \end{tikzpicture}
-    \end{figure}
+    \end{image}
+    
     \begin{oplossing}
     Ja, we kunnen dezelfde matrix $A$ gebruiken voor elke letter.
     De matrix $A$ beschrijft een algemene transformatie die alle punten in het vlak aanpast volgens dezelfde regels.

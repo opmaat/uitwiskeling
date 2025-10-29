@@ -1,0 +1,21 @@
+/*  UITWISKELING KLEUREN */
+
+
+/* #009bd DONKERBLAUW (ACTUALITEIT) */
+/* #f0811 ORANJE (BIBWIJZER) */
+/* #dd3333 ROOD (MODERNISERING SO) */
+/* #d15399 ROOS (ONDER DE LOEP)  */
+/* #1c8fa2 APPELBLAUWZEEGROEN (REDACTIONEEL) */
+/* #81BA27 GROEN (SPINNENWEB) */
+/* #5690b7 NOG EEN BLAUW (VERSCHENEN IN VECTOR) */
+
+
+
+img.brandlogo {
+		display: none;		
+}
+
+img.xourselogo {
+	max-height: 6rem;
+	max-width: 20vw;
+}
