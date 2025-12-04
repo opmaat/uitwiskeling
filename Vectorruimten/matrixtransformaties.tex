@@ -70,7 +70,11 @@ Probeer de voorgestelde aanpak. Je moet ofwel:
         \item De totale transformatie is dan het product van deze twee matrices:
         \[A = H \cdot S = \begin{bmatrix} 1 & \frac{1}{4} \\ 0 & 1 \end{bmatrix} \cdot \begin{bmatrix} 1 & 0 \\ 0 & \frac{4}{3} \end{bmatrix} = \begin{bmatrix} 1 & \frac{1}{3} \\ 0 & \frac{4}{3} \end{bmatrix}\]
     \end{enumerate}
-    Is het belangrijk in welke volgorde we de transformaties toepassen, of met andere woorden welke matrix we eerst vermenigvuldigen?
+    Merk op: het is belangrijk in welke volgorde we de matrices vermenigvuldigen (want de volgorde van de meetkundige transformaties is belangrijk).
+    Algebraïsch kan je dit ook controleren:
+    \[
+    S \cdot H = \begin{bmatrix} 1 & 0 \\ 0 & \frac{4}{3} \end{bmatrix} \cdot \begin{bmatrix} 1 & \frac{1}{4} \\ 0 & 1 \end{bmatrix} = \begin{bmatrix} 1 & \frac{1}{4} \\ 0 & \frac{4}{3} \end{bmatrix} \neq H \cdot S
+    \]
 \end{oplossing}
 \end{exercise}
 
@@ -99,9 +103,9 @@ Probeer de voorgestelde aanpak. Je moet ofwel:
     \begin{oplossing}
     Ja, we kunnen dezelfde matrix $A$ gebruiken voor elke letter.
     De matrix $A$ beschrijft een algemene transformatie die alle punten in het vlak aanpast volgens dezelfde regels.
-    Het is eigenlijk geen transformatie van individuele punten, maar van volledige deelruimtes.
+    Het is eigenlijk geen transformatie van individuele punten, maar van het volledige vlak.
     (In een volledig realistisch scenario zou de matrix ook rekening moeten houden met de specifieke kenmerken van elke letter, maar in dit vereenvoudigde voorbeeld is dat niet nodig.)
-    \end{oplossing}
-    
+\end{oplossing}    
 \end{exercise}
+
 \end{document}
