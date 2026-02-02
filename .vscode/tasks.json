@@ -14,6 +14,7 @@
             "args": [
                 "bake",
                 "-s",
+                "--nodependencies",
                 "--force",
                 "--compile pdf",
                 "${relativeFile}"
