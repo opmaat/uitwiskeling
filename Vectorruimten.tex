@@ -1,4 +1,5 @@
 %\documentclass[12pt,numbers,noauthor,nooutcomes,wordchoicegiven]{xourse}
+
 \documentclass[10pt,numbers,noauthor,nooutcomes,wordchoicegiven]{xourse}
 % \input{./preamble.tex}
 % \input{../preambles/tcolorbox.tex}   % voor formularia ...
@@ -7,11 +8,21 @@
 \pdfOnly{\renewcommand{\xmcursusnaam}{{\textsc{Uitwiskeling}}}}
 
 
-\logo{xmPictures/logouitwiskeling.png}
+\logo{xmPictures/logouitwiskelingloep.png}
+
+\newcommand*{\uitgavenr}{42/1 (Winter 2026)}
+\newcommand*{\uitgaveseizoen}{Onder de loep: Vectorruimten}
+
 
 \begin{document}
 %	\setcounter{tocdepth}{2}
     \xmtitle{Vectorruimten}  
+
+\providecommand{\rubriek}[2]{}    % only defined in prontstyle ...
+
+\rubriek{loep}{Onder de loep}
+\pagestyle{uitwiskeling}
+
 
 \part{Onderzoekende leeractiviteiten}
 

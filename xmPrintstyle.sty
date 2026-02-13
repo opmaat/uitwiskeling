@@ -113,6 +113,11 @@
 \providebool{printactivityurl}
 \providebool{printcontinuouspagenumbers}
 
+\printcontinuouspagenumberstrue
+
+
+
+
 % for PDF by activity, it makes sense not to include the title, as it is in the header already
 \printactivitytitletrue   % overwrite AFTER loading printstyle ...
 
@@ -135,6 +140,11 @@
 %\definecolor{blueKUL}{RGB}{252,175,59}  % Wiskundeplan
 \definecolor{blueKUL}{rgb}{0.114, 0.553, 0.69}  % KU Leuven Blauw
 \colorlet{blueline}{blueKUL!20}
+
+
+\definecolor{kleurloep}{cmyk}{0.16,0.79,0.00,0.00}  	% roze
+\definecolor{bluetitle}{cmyk}{0.16,0.79,0.00,0.00}  	% roze
+\definecolor{blueline}{cmyk}{0.16,0.79,0.00,0.00}  	% roze
 
 % =============================================================================
 % 5. COURSE METADATA & CUSTOMIZATION COMMANDS
@@ -402,8 +412,9 @@
    \fi
 %  \markright{ \@title }   % fix wrong section on first page of activity    
 
-  \thispagestyle{firstpage} 
-  \afterpage{\thispagestyle{otherpage}}  
+%   \thispagestyle{firstpage} 
+%   \afterpage{\thispagestyle{otherpage}}  
+   \pagestyle{uitwiskeling} 
 } % end \renewcommand maketitle (voor MAIN FRONTPAGE)
 
 %
@@ -486,8 +497,9 @@
     }
     
     \markboth{\thetitlenumber\hspace{1em} \@title}{\thetitlenumber\hspace{1em} \@title}   % fix wrong section on last page of activity    
-    \thispagestyle{firstpage} 
-    \afterpage{\thispagestyle{otherpage}} 
+    % \thispagestyle{firstpage} 
+    % \afterpage{\thispagestyle{otherpage}} 
+       \pagestyle{uitwiskeling} 
   }% end maketitle
 }
 
@@ -520,14 +532,15 @@
 
     \markboth{\thesectiontitlenumber\hspace{1em} \@title}{\thesectiontitlenumber\hspace{1em} \@title}   % fix wrong section on last page of activity
 
-    \thispagestyle{firstpage} 
-    \afterpage{\thispagestyle{otherpage}} 
+    % \thispagestyle{firstpage} 
+    % \afterpage{\thispagestyle{otherpage}} 
+       \pagestyle{uitwiskeling} 
   }
 }
 
 %% herdefinieer part
 \renewcommand\part{%
-  \thispagestyle{empty}
+  %\thispagestyle{empty}
   \if@openright
     \cleardoublepage
   \else
@@ -902,7 +915,8 @@
     boxsep=0pt,
     colback={\colorexample!0!white},
     enhanced jigsaw,
-    borderline west={2pt}{0pt}{\colorexample!50!black},
+    % borderline west={2pt}{0pt}{\colorexample!50!black},
+    borderline west={2pt}{0pt}{kleurloep},
     sharp corners,
     before skip=10pt,
     after skip=10pt,
@@ -1424,3 +1438,128 @@
 % }{
 %     \typeout{Info: No local \currfilebase.sty}
 % }
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% KOP- EN VOETTEKSTEN %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[scaled=1.00]{XCharter}				% lettertype Bitstream Charter (serif) + uitbreiding (gebruikt voor body tekst) %naam=XCharter-TLF
+%https://mirror.lyrahosting.com/CTAN/fonts/xcharter/doc/xcharter-doc.pdf incl. advies voor math font pairing met XCharter
+
+\usepackage[defaultsans,scale=0.95]{opensans}	% lettertype Open Sans (noot: geen small caps mogelijk)
+\DeclareRobustCommand\ebseries{\fontseries{eb}\selectfont}	% extra bold weight
+\DeclareRobustCommand\sbseries{\fontseries{sb}\selectfont}	% semi-bold weight
+\DeclareRobustCommand\ltseries{\fontseries{l}\selectfont}	% light weight
+\DeclareTextFontCommand{\texteb}{\ebseries}					% extra bold weight
+\DeclareTextFontCommand{\textsb}{\sbseries}					% semi-bold weight
+\DeclareTextFontCommand{\textlt}{\ltseries}					% light weight
+
+\usepackage{beramono}                           % lettertype Bera Mono (monospaced, versie van Bitstream Vera Mono) (gebruikt voor code etc) %naam=fvm
+
+
+\newlength{\extendmargin}
+\setlength{\extendmargin}{10mm}		% verbreding marge voor kop- & voetteksten etc
+
+
+\let\oldfootrule\footrule  						% bewaar originele definitie van footrule
+% \renewcommand*{\chaptermark}[1]{}				% voorkom dat \markboth overschreven wordt
+\renewcommand*{\sectionmark}[1]{}				% voorkom dat \markright overschreven wordt 
+\renewcommand*{\subsectionmark}[1]{} 			% voorkom dat \markright overschreven wordt (enkel nodig wanneer article class gebruikt wordt)
+\renewcommand*{\footruleskip}{0pt}  			% zet afstand tussen footer top & footrule op 0
+
+%% Paginanummer in verfstreep. Breedte blokje=extended margin.
+\newcommand*{\pagenrblockR}{%
+	\raisebox{-.6\height}{\includegraphics[width=\extendmargin,keepaspectratio]{\rubriekpagenrbg}}%
+	\hspace*{-.5\extendmargin}%
+	\makebox[0pt][c]{\textcolor{white}{\textbf{\thepage}}}%
+	\hspace*{.5\extendmargin}%
+}
+\newcommand*{\pagenrblockL}{%
+	\raisebox{-.6\height}{\reflectbox{\includegraphics[width=\extendmargin,keepaspectratio]{\rubriekpagenrbg}}}%
+	\hspace*{-.5\extendmargin}%
+	\makebox[0pt][c]{\textcolor{white}{\textbf{\thepage}}}%
+	\hspace*{.5\extendmargin}%
+}
+
+%% Definieer een nieuwe paginastijl: uitwiskeling
+\fancypagestyle{uitwiskeling}{ %
+	\fancyhf{}  								% verwijder alle stijldefinities
+	\addtolength{\headwidth}{2\extendmargin}  	% verander breedte van header & footer, default is \textwidth
+	\fancyhfoffset[F]{\extendmargin}			% hercentreer footer na verbreden
+	\renewcommand*{\headrulewidth}{0pt}			% geen header lijn
+	\renewcommand*{\footrulewidth}{1pt}			% footer lijn dikte
+	\renewcommand*{\footrule}{{\color{\rubriekkleur}\oldfootrule}} % footer lijn kleur
+	
+	%% Kopteksten
+	\fancyhead[LE]{\sffamily\small\bfseries\color{\rubriekkleur}%
+		\raisebox{-.25\height}{\includegraphics[width=5mm,keepaspectratio]{\rubriekheaderimg}}%	
+		\enspace \MakeUppercase{\leftmark}}
+	
+	\fancyhead[RO]{\sffamily\small\sbseries\color{\rubriekkleur}%
+		\raisebox{-.25\height}{\rule{0pt}{5mm}}%	
+		\rightmark}
+	
+	%% Voetteksten
+	\fancyfoot[LE]{{\sffamily\small\color{\rubriekkleur}\pagenrblockL \quad Uitwiskeling \uitgavenr \enspace \textendash \enspace \uitgaveseizoen}}
+	
+	\fancyfoot[RO]{{\sffamily\small\color{\rubriekkleur}Uitwiskeling \uitgavenr \enspace \textendash \enspace \uitgaveseizoen \quad \pagenrblockR}}
+}
+
+%% Herdefinieer de plain paginastijl (gebruikt voor eerste pagina van rubriek & artikel)
+%% Maak koptekst leeg, behoud voettekst uit uitwiskeling stijl
+\fancypagestyle{plain}{
+	\fancyhead{}
+	\renewcommand*{\headrule}{}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% OPMAAK RUBRIEKEN, ARTIKELS & TUSSENTITELS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% DEFINIEER RUBRIEKKLEUREN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{kleurredact}{cmyk}{0.79,0.23,0.32,0.05}  	% blauwgroen
+\definecolor{kleurspin}{cmyk}{0.57,0.00,1.00,0.00}  	% geelgroen
+\definecolor{kleurloep}{cmyk}{0.16,0.79,0.00,0.00}  	% roze
+\definecolor{kleurbib}{cmyk}{0.00,0.58,0.94,0.00}  		% oranje
+\definecolor{kleuractua}{cmyk}{0.88,0.14,0.00,0.00}  	% blauw
+\definecolor{kleurnone}{cmyk}{0.00,0.00,0.00,0.60}  	% grijs 60%
+
+
+%% DEFINIEER RUBRIEKEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\rubriekkleur}{kleurnone}
+\newcommand*{\rubriekimg}{}
+\newcommand*{\rubriekheaderimg}{}
+\newcommand*{\rubriekcheckmark}{}
+\newcommand*{\rubriekpagenrbg}{}
+
+%% Start nieuwe rubriek commando - typeset hoofding en stel o.a. de rubriekkleur in
+%% \rubriek{type}{titel}
+%% Argument 1: type rubriek: redactioneel, spin, loep, bib, actua
+%% Argument 2: titel die getoond wordt
+\newcommand*{\rubriek}[2]{%
+	\clearpage%
+	\IfEqCase{#1}{%
+		{redactioneel}{%
+			\renewcommand*{\rubriekkleur}{kleurredact}}%
+		{spin}{%
+			\renewcommand*{\rubriekkleur}{kleurspin}}%
+		{loep}{%
+			\renewcommand*{\rubriekkleur}{kleurloep}}%
+		{bib}{%
+			\renewcommand*{\rubriekkleur}{kleurbib}}%
+		{actua}{%
+			\renewcommand*{\rubriekkleur}{kleuractua}}%
+		}[\PackageError{rubriek}{Ongedefinieerd rubriektype: #1}{}]%
+	\renewcommand*{\rubriekimg}{imgDesign/RubriekImg_#1.jpg}%
+	\renewcommand*{\rubriekheaderimg}{imgDesign/Uitwiskeling_logo_mini_#1.png}%
+	\renewcommand*{\rubriekcheckmark}{imgDesign/checkmark_#1.png}%
+	\renewcommand*{\rubriekpagenrbg}{imgDesign/paginanrbg_#1.png}%
+	% \part*{#2}%							% rubriek is eigenlijk ongenummerde part
+	% \phantompageref%					% zodat links naar linkerbovenhoek pagina gaan
+	% \addcontentsline{toc}{part}{#2}%	% voor rubrieknaam in TOC
+	% \markboth{#2}{}%  					% voor rubrieknaam in header
+	% \thispagestyle{plain}%				% enkel footer, geen header
+}
